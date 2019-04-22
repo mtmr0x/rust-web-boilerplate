@@ -1,3 +1,5 @@
 #!/bin/sh
 
-source ./.env ~/.cargo/bin/cargo run
+source ./.env 
+
+~/.cargo/bin/cargo run
