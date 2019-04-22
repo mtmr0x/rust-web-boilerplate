@@ -1,6 +1,6 @@
 # Rust web server example
 
-It's a work in progress web server in Rust I intend to work on for the past days until I get a result which has the basic set up for creating small or big applications starting from this codebase.
+It's a work in progress web server in Rust I intend to work on for the next days until I get a result which has the basic set up for creating small or big applications starting from this codebase.
 
 ## Installation
 
