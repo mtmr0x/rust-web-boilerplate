@@ -1,0 +1,8 @@
+[package]
+name = "mtmr0x_web_boilerplate"
+version = "0.0.1"
+authors = ["Matheus Marsiglio <matmarsiglio@gmail.com>"]
+
+[dependencies]
+iron = "*"
+router = "*"
