@@ -1,31 +1,16 @@
 pub mod config {
     use std::env;
+    use std::option::Option;
 
-    fn get_env_var(key: String, default: String) -> String {
-        println!("get env var {}", key);
+    fn get_env_var(key: String) -> Option<String> {
         match env::var(key) {
-            Ok(val) => val.to_string(),
-            Err(_e) => default,
+            Ok(val) => Some(val),
+            Err(_e) => None,
         }
     }
 
     pub fn server_port() -> String {
-        get_env_var("SERVER_PORT".to_string(), "5000".to_string())
+        get_env_var("SERVER_PORT".to_string()).unwrap()
     }
-
-//    struct Database {
-//        name: String,
-//        host: String,
-//        port: String,
-//        user: String,
-//        password: String,
-//    }
-//
-//    pub fn database() -> Database {
-//        let name:String = match env::var("DATABASE_NAME".to_string()) {
-//            Ok(val) => val.to_string(),
-//            Err(_e) => "4000".to_string(),
-//        };
-//    }
 }
 
