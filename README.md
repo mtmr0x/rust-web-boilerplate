@@ -8,19 +8,25 @@ Install Rust
 
 Go to https://www.rust-lang.org/tools/install and check installation methods
 
-Use Cargo to compile and run with this simple command:
+## Set up
+
+You'll have to load in memory environment variables present in `start.sh` file.
+
+## Run
+
+Execute the `start.sh` script located in the this project:
 
 ```shell
-cargo run
+./start.sh
 ```
 
-You can pass `SERVER_PORT` environment variable to the process, otherwise the application runs by default at `http://localhost:5000`
+It will add environment variables to the process and use cargo binaries to compile and run.
 
 ## To-do list
 
 - [x] Web framework (Iron): https://docs.rs/iron/0.6.0/iron/index.html
 - [x] Routing: https://docs.rs/router/0.6.0/router/index.html
-- [ ] Get environment variables from profile
+- [x] Get environment variables from profile
 - [ ] Have a sexy log tool great for instrumentation
 - [ ] Implement GraphQL
 
