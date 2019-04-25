@@ -11,7 +11,7 @@ use router::Router;
 mod endpoints;
 mod config;
 use config::config::server_port;
-pub mod logger;
+mod logger;
 use logger::logger::setup_logger;
 
 mod routes;
