@@ -10,24 +10,21 @@ use router::Router;
 
 mod endpoints;
 mod config;
-mod logger;
-
+use config::config::server_port;
+pub mod logger;
 use logger::logger::setup_logger;
 
-use endpoints::index::index_handler::handler;
-use config::config::server_port;
+mod routes;
+use routes::routes::app_routes;
 
 fn main() {
     setup_logger().expect("Could not load logger");
     info!("Loading server");
 
-    let mut router = Router::new();
-    router.get("/", handler, "index");
-    router.get("/:query", query_handler, "query");
     let server_url:String = format!("localhost:{}", server_port());
 
     info!("server is running at {}", server_url);
-    Iron::new(router).http(server_url).unwrap();
+    Iron::new(app_routes()).http(server_url).unwrap();
 
     fn query_handler(req: &mut Request) -> IronResult<Response> {
         println!("Routing: get from {}", req.url);
