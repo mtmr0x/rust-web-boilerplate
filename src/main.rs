@@ -10,7 +10,7 @@ use router::Router;
 
 mod endpoints;
 mod config;
-mod logger { pub mod logger };
+mod logger;
 
 use logger::logger::setup_logger;
 
