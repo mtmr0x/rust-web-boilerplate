@@ -4,9 +4,7 @@ extern crate fern;
 #[macro_use]
 extern crate log;
 
-use iron::{Iron, Request, Response, IronResult};
-use iron::status;
-use router::Router;
+use iron::{Iron};
 
 mod endpoints;
 mod config;
@@ -25,12 +23,5 @@ fn main() {
 
     info!("server is running at {}", server_url);
     Iron::new(app_routes()).http(server_url).unwrap();
-
-    fn query_handler(req: &mut Request) -> IronResult<Response> {
-        println!("Routing: get from {}", req.url);
-        let ref query = req.extensions.get::<Router>()
-            .unwrap().find("query").unwrap_or("/");
-        Ok(Response::with((status::Ok, *query)))
-    }
 }
 
