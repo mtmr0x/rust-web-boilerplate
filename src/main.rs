@@ -8,7 +8,7 @@ use iron::{Iron};
 
 mod endpoints;
 mod config;
-use config::config::server_port;
+use config::config::{server_port, level_verbosity};
 mod logger;
 use logger::logger::setup_logger;
 
@@ -16,7 +16,7 @@ mod routes;
 use routes::routes::app_routes;
 
 fn main() {
-    setup_logger().expect("Could not load logger");
+    setup_logger(level_verbosity()).expect("Could not load logger");
     info!("Loading server");
 
     let server_url:String = format!("localhost:{}", server_port());
