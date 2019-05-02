@@ -26,7 +26,7 @@ It will add environment variables to the process and use cargo binaries to compi
 
 - [x] Web framework (Iron): https://docs.rs/iron/0.6.0/iron/index.html
 - [x] Routing: https://docs.rs/router/0.6.0/router/index.html
-- [wip] Get environment variables from profile
+- [x] Get environment variables from profile
 - [x] Have a sexy log tool great for instrumentation
 - [ ] Document its folder structure and how to run properly
 - [ ] Implement GraphQL
