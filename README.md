@@ -33,11 +33,11 @@ Then start the server using the `start.sh` script.
 - [Set up](#set-up)
     - [Environment variables](#environment-variables)
 - [Run](#run)
-- [Folder structure](#folder-structure)
-- [Features](#features)
-    - [Logger](#logger)
-    - [Configuration](#configuration)
-    - [Routing](#routing)
+- [Folder structure](#folder-structure) _Work in progress_
+- [Features](#features) _Work in progress_
+    - [Logger](#logger) _Work in progress_
+    - [Configuration](#configuration) _Work in progress_
+    - [Routing](#routing) _Work in progress_
 
 ### Installation
 
