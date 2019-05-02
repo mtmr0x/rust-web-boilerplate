@@ -17,5 +17,9 @@ pub mod config {
         let value:String = get_env_var("LEVEL_VERBOSITY".to_string()).unwrap();
         value.parse::<u8>().unwrap()
     }
+
+    pub fn rustc_version() -> String {
+        get_env_var("RUSTC_VERSION".to_string()).unwrap()
+    }
 }
 

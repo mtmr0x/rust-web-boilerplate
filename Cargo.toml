@@ -9,4 +9,5 @@ router = "0.6.0"
 log = "0.4"
 fern = { version = "0.5", features = ["colored"] }
 chrono = "0.4"
+rustc_version = "0.2.3"
 
