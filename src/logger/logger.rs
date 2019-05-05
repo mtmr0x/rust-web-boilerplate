@@ -20,7 +20,7 @@ pub fn setup_logger(verbosity:u8) -> Result<(), fern::InitError> {
         .warn(Color::Yellow)
         .debug(Color::Magenta);
 
-    let stdout_config = fern::Dispatch::new()
+    let file_config = fern::Dispatch::new()
         .format(move |out, message, record| {
             out.finish(format_args!(
                 "{}[{}][{}] {}",
@@ -30,10 +30,21 @@ pub fn setup_logger(verbosity:u8) -> Result<(), fern::InitError> {
                 message
         ))
     })
-    .chain(io::stdout())
     .chain(fern::log_file("output.log")?);
 
-    level_config.chain(stdout_config).apply()?;
+    let stdout_config = fern::Dispatch::new()
+        .format(move |out, message, record| {
+            out.finish(format_args!(
+                "{}[{}][{}] {}",
+                chrono::Local::now().format("[%H:%M:%S]"),
+                record.target(),
+                colors.color(record.level()),
+                message
+        ))
+    })
+    .chain(io::stdout());
+
+    level_config.chain(file_config).chain(stdout_config).apply()?;
 
     Ok(())
 }
