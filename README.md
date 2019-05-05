@@ -33,11 +33,10 @@ Then start the server using the `start.sh` script.
 - [Set up](#set-up)
     - [Environment variables](#environment-variables)
 - [Run](#run)
-- [Folder structure](#folder-structure) _Work in progress_
-- [Features](#features) _Work in progress_
-    - [Logger](#logger) _Work in progress_
-    - [Configuration](#configuration) _Work in progress_
-    - [Routing](#routing) _Work in progress_
+- [Features](#features)
+    - [Logger](#logger)
+    - [Configuration](#configuration)
+    - [Routing](#routing)
 
 ### Installation
 
@@ -63,12 +62,37 @@ Execute the `start.sh` script located in the this project:
 ./start.sh
 ```
 
+### Features
+
+#### Logger
+
+Logger configurations depends on `LEVEL_VERBOSITY` environment variable for deciding what levels of logs can be printed. `LEVEL_VERBOSITY` documentation and usage is present in `.env.sample` file.
+
+**stdout log**:
+
+The application logs stdout for instrumentation and its format is present in `src/logger/logger.rs` file, logging hour, target, level and message.
+
+**output file log**:
+
+The file output is set as `output.log` file, that will be present in the root directory as it has logs. It prints the same format of stdout logs with addition of Year, Month and Day of that output before the time of it.
+
+#### Configuration
+
+This application tries to follow _configuration over convention_. All types of configurations that is not Rust convention is placed as environment variable and all of them must be set, otherwise the application will fail to start.
+
+You can find all necessary environment variables documented for this project inside `.env.sample` file.
+
+#### Routing
+
+This project is meant to be easy for people coming from NodeJS and that said the closest way to get there was to find a routing declaration library and framework that could make web development similar to ExpressJS or Koa. [Iron](https://docs.rs/iron/0.6.0/iron/index.html) and [Router](https://docs.rs/router/0.6.0/router/index.html) did the job.
+
+
 ## To-do list
 
 - [x] Web framework (Iron): https://docs.rs/iron/0.6.0/iron/index.html
 - [x] Routing: https://docs.rs/router/0.6.0/router/index.html
 - [x] Get environment variables from profile
 - [x] Have a sexy log tool great for instrumentation
-- [x] Document its folder structure and how to properly run
+- [x] Document how to run
 - [ ] Implement GraphQL
 
