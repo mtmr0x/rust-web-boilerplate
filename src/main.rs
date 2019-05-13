@@ -29,7 +29,7 @@ fn main() {
     setup_logger(level_verbosity()).expect("Could not load logger");
     info!("Loading server");
 
-    let server_url:String = format!("localhost:{}", server_port());
+    let server_url:String = format!("0.0.0.0:{}", server_port());
 
     info!("server is running at {}", server_url);
     Iron::new(app_routes()).http(server_url).unwrap();
